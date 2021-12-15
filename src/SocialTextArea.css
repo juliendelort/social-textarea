@@ -1,0 +1,163 @@
+.social-text-area {
+    /* TwemojiMozilla for fixing emoji flags on windows/chrome : https://github.com/missive/emoji-mart/issues/451#issuecomment-731150895
+        Also: https://prinsfrank.nl/2021/01/25/Non-existing-flag-emojis-on-windows */
+    --emoji-font: "TwemojiMozilla", "Segoe UI Emoji", "Segoe UI Symbol", "Segoe UI", "Noto Color Emoji", "Android Emoji";
+    --editor-bg-color: whitesmoke;
+}
+
+.social-text-area .editor {
+    box-sizing: border-box;
+    border: none;
+    cursor: text;
+    border-radius: 2px;
+    width: 100%;
+    border-radius: 3px;
+    background-color: var(--editor-bg-color);
+}
+
+.social-text-area .editor:focus-within {
+    outline: 1px solid gray;
+}
+.social-text-area .mentionInputRoot {
+    height: auto;
+    min-height: 100px;
+}
+
+/* The entire control, containing the text area and the rendered mentions */
+.social-text-area .mentionInputRoot__control,
+.social-text-area .mentionInputRoot__input {
+    font-family: var(--emoji-font);
+    line-height: 1.5;
+    height: 100%;
+    padding: 9px;
+}
+
+/* The actual textearea  */
+.social-text-area .mentionInputRoot__input {
+    border: none;
+}
+
+.social-text-area .mentionInputRoot__input:focus-visible {
+    outline: none;
+}
+
+/* The overlay for showing mentions */
+.social-text-area .mentionInputRoot .mentionInputRoot__highlighter {
+    overflow: visible;
+}
+.social-text-area .mentionInputRoot .mentionInputRoot__suggestions {
+    margin-top: 30px !important;
+}
+/* The suggestion list */
+.social-text-area .mentionInputRoot .mentionInputRoot__suggestions__list {
+    box-shadow: none;
+    border: 1px solid lightgray;
+    max-height: 300px;
+    overflow: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.social-text-area .mentionInputRoot .mentionInputRoot__suggestions__list::-webkit-scrollbar {
+    display: none;
+}
+/* A single item in the suggestion list */
+.social-text-area .mentionInputRoot .mentionInputRoot__suggestions__item {
+    padding: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.social-text-area .mentionInputRoot .mentionInputRoot__suggestions__item--focused {
+    background: whitesmoke;
+}
+
+/*
+* Mentions
+*/
+.social-text-area .social-text-area__mention {
+    background: aqua;
+    padding: 2px;
+    margin-left: -3px;
+    border-radius: 3px;
+    position: relative;
+    z-index: 1;
+    pointer-events: none;
+    color: black;
+}
+
+/*
+* Emojis
+*/
+
+.social-text-area .social-text-area__emoji-popper {
+    z-index: 100;
+    margin-top: 20;
+}
+
+.social-text-area .social-text-area__emoji-popper .emoji-mart-emoji-native {
+    font-family: var(--emoji-font);
+}
+
+.social-text-area .social-text-area__emoji-popper-arrow {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    z-index: -1;
+    top: -8px;
+}
+
+.social-text-area .social-text-area__emoji-popper-arrow:before {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    z-index: -1;
+    content: "";
+    transform: rotate(45deg);
+    background: "white";
+    border: "1px solid black";
+}
+.social-text-area .social-text-area__emoji-button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 0;
+}
+
+.social-text-area__emoji-suggestion {
+    width: 30px;
+    font-family: var(--emoji-font);
+}
+
+/*
+* Links
+*/
+
+.social-text-area .social-text-area__link {
+    text-decoration: underline;
+    color: blue;
+    background: var(--editor-bg-color);
+    position: relative;
+    z-index: 1;
+    padding: 2px;
+    margin-left: -3px;
+    border-radius: 3px;
+    top: -2px;
+    cursor: default;
+}
+
+.social-text-area .link-preview__media {
+    background-size: contain;
+    max-height: 250px;
+}
+.social-text-area .link-preview__title {
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+.social-text-area .link-preview__description {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
