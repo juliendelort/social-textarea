@@ -1,4 +1,4 @@
-import Avatar from '@material-ui/core/Avatar';
+import Avatar from '@mui/material/Avatar';
 import React from 'react';
 
 export const UserSuggestionEntry = React.memo(({ name, image }) => {

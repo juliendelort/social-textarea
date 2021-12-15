@@ -1,7 +1,7 @@
 import { Picker } from 'emoji-mart-virtualized';
 import React from 'react';
 import { SocialTextAreaContext } from '../context';
-import Popover from '@material-ui/core/Popover';
+import Popover from '@mui/material/Popover';
 
 export const EmojiPicker = ({ className }) => {
     const { value, triggerValueChange } = React.useContext(SocialTextAreaContext);
@@ -19,6 +19,14 @@ export const EmojiPicker = ({ className }) => {
 
     const handleClose = () => {
         setAnchorEl(null);
+    };
+
+    const handleSelect = (emoji) => {
+        triggerValueChange(
+            (value?.rawValue ?? '') + emoji.native,
+            (value?.plainText ?? '') + emoji.native,
+            value.current?.mentions ?? []
+        );
     };
 
     // type="button" to avoid submitting the form
@@ -61,13 +69,7 @@ export const EmojiPicker = ({ className }) => {
                     native={true}
                     emojiSize={20}
                     theme='light'
-                    onSelect={emoji => {
-                        triggerValueChange(
-                            (value?.value ?? '') + emoji.native,
-                            (value?.plainText ?? '') + emoji.native,
-                            value.current?.mentions ?? []
-                        );
-                    }}
+                    onSelect={handleSelect}
                     title=""
                     emoji=""
                 />

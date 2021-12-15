@@ -7,33 +7,41 @@ import { SocialTextAreaContext } from './context';
 import { EmojiPicker } from './emojis/EmojiPicker';
 import { LinkPreview } from './links/LinkPreview';
 
-const SocialTextArea = ({ children, value, onValueChange, className = '', placeholder = '', onFetchLinkPreview = null, onSearchUsers }) => {
+export const SocialTextArea = ({ children, value: valueProp = null, defaultValue, onValueChange, className = '', placeholder = '', onFetchLinkPreview = null, onSearchUsers }) => {
+    // If uncontrolled
+    const [currentValue, setCurrentValue] = React.useState(defaultValue);
 
-    const currentValue = React.useRef(value);
-    currentValue.current = value?.rawValue || '';
+    const previousValue = React.useRef(valueProp);
+    previousValue.current = valueProp?.rawValue || '';
 
-    const { currentLink, linkPreviewData, isLoadingLinkPreview, getNewValueWithLinks, renderLinkMention } = useLinks(value, onFetchLinkPreview);
+    const { currentLink, linkPreviewData, isLoadingLinkPreview, getNewValueWithLinks, renderLinkMention } = useLinks(valueProp, onFetchLinkPreview);
     const renderUserMentions = useUserMentions(onSearchUsers);
     const renderEmojiSuggestions = useEmojis();
 
     const contextValue = React.useMemo(() => ({
-        value,
-        triggerValueChange: (newValue, newPlainTextValue, mentions) => {
-            onValueChange({
-                rawValue: newValue,
+        value: valueProp ?? currentValue,
+        triggerValueChange: (newRawValue, newPlainTextValue, mentions) => {
+
+            const newValue = {
+                rawValue: newRawValue,
                 plainText: newPlainTextValue,
                 mentions: mentions,
-            });
+            };
+            onValueChange(newValue);
+            if (valueProp === null) {
+                // uncontrolled : update state
+                setCurrentValue(newValue);
+            }
         },
         currentLink,
         linkPreviewData,
         isLoadingLinkPreview
-    }), [value, onValueChange, currentLink, linkPreviewData, isLoadingLinkPreview]);
+    }), [valueProp, onValueChange, currentLink, linkPreviewData, isLoadingLinkPreview]);
 
 
 
     const handleChange = (event, newValue, newPlainTextValue, mentions) => {
-        const newValueWithLinks = getNewValueWithLinks(currentValue.current, newValue);
+        const newValueWithLinks = getNewValueWithLinks(previousValue.current, newValue);
         contextValue.triggerValueChange(newValueWithLinks, newPlainTextValue, mentions);
     };
 
@@ -41,7 +49,7 @@ const SocialTextArea = ({ children, value, onValueChange, className = '', placeh
         <div className={`social-text-area ${className ?? ''}`}>
             <div className='editor'>
                 <MentionsInput
-                    value={value?.rawValue ?? ''}
+                    value={valueProp?.rawValue ?? currentValue?.rawValue ?? ''}
                     onChange={handleChange}
                     placeholder={placeholder}
                     className='mentionInputRoot'
@@ -58,5 +66,3 @@ const SocialTextArea = ({ children, value, onValueChange, className = '', placeh
 
 SocialTextArea.EmojiPicker = EmojiPicker;
 SocialTextArea.LinkPreview = LinkPreview;
-
-export default SocialTextArea;

@@ -3,7 +3,6 @@ import { Mention } from 'react-mentions';
 // Using emoji-mart-virtualized which is a fork of emoji-mart but with a virtualized list
 // https://github.com/missive/emoji-mart/issues/6#issuecomment-865706612
 import { emojiIndex } from 'emoji-mart-virtualized';
-import 'emoji-mart-virtualized/css/emoji-mart.css';
 import { EmojiSuggestionEntry } from './EmojiSuggestionEntry';
 
 const neverMatchingRegex = /($a)/;

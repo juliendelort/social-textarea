@@ -1,3 +1,5 @@
+@import "emoji-mart-virtualized/css/emoji-mart.css";
+
 .social-text-area {
     /* TwemojiMozilla for fixing emoji flags on windows/chrome : https://github.com/missive/emoji-mart/issues/451#issuecomment-731150895
         Also: https://prinsfrank.nl/2021/01/25/Non-existing-flag-emojis-on-windows */
