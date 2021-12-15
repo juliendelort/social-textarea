@@ -7,9 +7,6 @@ import { SocialTextAreaContext } from './context';
 import { EmojiPicker } from './emojis/EmojiPicker';
 import { LinkPreview } from './links/LinkPreview';
 
-fas;
-
-
 const SocialTextArea = ({ children, value, onValueChange, className = '', placeholder = '', onFetchLinkPreview = null, onSearchUsers }) => {
 
     const currentValue = React.useRef(value);
