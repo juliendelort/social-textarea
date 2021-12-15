@@ -13,7 +13,7 @@ export const useUserMentions = (onSearchUsers) => {
         const result = await onSearchUsers(name);
 
         callback(result?.map(user => ({
-            id: user.id,
+            id: user.id ?? user.name,
             name: user.name,
             image: user.image,
             display: user.name,

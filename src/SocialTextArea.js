@@ -27,7 +27,9 @@ export const SocialTextArea = ({ children, value: valueProp = null, defaultValue
                 plainText: newPlainTextValue,
                 mentions: mentions,
             };
-            onValueChange(newValue);
+            if (onValueChange) {
+                onValueChange(newValue);
+            }
             if (valueProp === null) {
                 // uncontrolled : update state
                 setCurrentValue(newValue);
@@ -36,7 +38,7 @@ export const SocialTextArea = ({ children, value: valueProp = null, defaultValue
         currentLink,
         linkPreviewData,
         isLoadingLinkPreview
-    }), [valueProp, onValueChange, currentLink, linkPreviewData, isLoadingLinkPreview]);
+    }), [valueProp, currentValue, onValueChange, currentLink, linkPreviewData, isLoadingLinkPreview]);
 
 
 
