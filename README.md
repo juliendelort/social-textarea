@@ -26,7 +26,7 @@ import { SocialTextArea } from 'social-textarea';
 import 'social-textarea/dist/SocialTextArea.css';
 ````
 
-### [See demo on Stackblitz!](https://stackblitz.com/edit/demo-social-textarea?embed=1&file=src/style.css)
+### [See demo on Stackblitz!](https://stackblitz.com/edit/demo-social-textarea?file=src/App.js)
 
 ### Basic usage
 ```jsx
