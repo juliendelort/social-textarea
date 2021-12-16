@@ -1,7 +1,7 @@
 
 # social-textarea
 
-A "social" React textarea that supports user mentions, emojis and url previews.
+A React "social" React textarea that supports user mentions, emojis and url previews.
 
 Built on top of [react-mentions](https://github.com/signavio/react-mentions) and [emoji-mart](https://github.com/missive/emoji-mart) (a [virtualized fork](https://www.npmjs.com/package/emoji-mart-virtualized)).
 
