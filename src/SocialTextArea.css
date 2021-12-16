@@ -78,14 +78,14 @@
 * Mentions
 */
 .social-text-area .social-text-area__mention {
-    background: aqua;
+    background: dodgerblue;
     padding: 2px;
     margin-left: -3px;
     border-radius: 3px;
     position: relative;
     z-index: 1;
     pointer-events: none;
-    color: black;
+    color: white;
 }
 
 /*
