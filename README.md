@@ -1,7 +1,9 @@
 
 # social-textarea
 
-A React "social" React textarea that supports user mentions, emojis and url previews.
+A React "social" textarea that supports user mentions, emojis and url previews.
+
+Works on mobile.
 
 Built on top of [react-mentions](https://github.com/signavio/react-mentions) and [emoji-mart](https://github.com/missive/emoji-mart) (a [virtualized fork](https://www.npmjs.com/package/emoji-mart-virtualized)).
 
@@ -17,6 +19,10 @@ Built on top of [react-mentions](https://github.com/signavio/react-mentions) and
   npm install social-textarea
 ```
     
+## Live Demo
+
+See demo [here](https://demo-social-textarea.stackblitz.io) ([code](https://stackblitz.com/edit/demo-social-textarea?file=src/App.js)).
+
 ## Usage/Examples
 
 Import the main component and the styles on your pabe
@@ -26,7 +32,6 @@ import { SocialTextArea } from 'social-textarea';
 import 'social-textarea/dist/SocialTextArea.css';
 ````
 
-### [See demo on Stackblitz!](https://stackblitz.com/edit/demo-social-textarea?file=src/App.js)
 
 ### Basic usage
 ```jsx
