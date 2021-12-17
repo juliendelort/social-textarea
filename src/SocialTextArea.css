@@ -1,5 +1,14 @@
 @import "emoji-mart-virtualized/css/emoji-mart.css";
 
+/* The regular TwemojiMozilla font has issues on mac: https://github.com/mozilla/twemoji-colr/issues/50
+ Fixed font file downloaded from https://github.com/mozilla/twemoji-colr/issues/50#issuecomment-774680690 */
+@font-face {
+    font-family: "TwemojiMozilla";
+    unicode-range: U+1F1E6-1F1FF;
+    src: url("./assets/twemoji-colrv0.ttf") format("truetype");
+    font-weight: normal;
+}
+
 .social-text-area {
     /* TwemojiMozilla for fixing emoji flags on windows/chrome : https://github.com/missive/emoji-mart/issues/451#issuecomment-731150895
         Also: https://prinsfrank.nl/2021/01/25/Non-existing-flag-emojis-on-windows */
@@ -129,6 +138,10 @@
 
 .social-text-area__emoji-suggestion {
     width: 30px;
+    font-family: var(--emoji-font);
+}
+
+.emoji-mart-emoji-native {
     font-family: var(--emoji-font);
 }
 

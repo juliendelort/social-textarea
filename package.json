@@ -1,6 +1,6 @@
 {
   "name": "social-textarea",
-  "version": "0.0.22",
+  "version": "0.0.24",
   "description": "Text field supporting mentions, emojis and url previews",
   "main": "dist/index.js",
   "dependencies": {
