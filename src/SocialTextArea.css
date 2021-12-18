@@ -1,19 +1,15 @@
 @import "emoji-mart-virtualized/css/emoji-mart.css";
 
-/* The regular TwemojiMozilla font has issues on mac: https://github.com/mozilla/twemoji-colr/issues/50
- Fixed font file downloaded from https://github.com/mozilla/twemoji-colr/issues/50#issuecomment-774680690 */
-@font-face {
-    font-family: "TwemojiMozilla";
-    unicode-range: U+1F1E6-1F1FF;
-    src: url("./assets/twemoji-colrv0.ttf") format("truetype");
-    font-weight: normal;
-}
-
 .social-text-area {
     /* TwemojiMozilla for fixing emoji flags on windows/chrome : https://github.com/missive/emoji-mart/issues/451#issuecomment-731150895
         Also: https://prinsfrank.nl/2021/01/25/Non-existing-flag-emojis-on-windows */
     --emoji-font: "TwemojiMozilla", "Segoe UI Emoji", "Segoe UI Symbol", "Segoe UI", "Noto Color Emoji", "Android Emoji";
     --editor-bg-color: whitesmoke;
+}
+
+.social-text-area__emoji-popper .emoji-mart-emoji-native {
+    /* Cannot use --emoji-font because this is not under .social-text-area */
+    font-family: "TwemojiMozilla", "Segoe UI Emoji", "Segoe UI Symbol", "Segoe UI", "Noto Color Emoji", "Android Emoji";
 }
 
 .social-text-area .editor {
@@ -106,10 +102,6 @@
     margin-top: 20;
 }
 
-.social-text-area .social-text-area__emoji-popper .emoji-mart-emoji-native {
-    font-family: var(--emoji-font);
-}
-
 .social-text-area .social-text-area__emoji-popper-arrow {
     position: absolute;
     width: 16px;
@@ -138,10 +130,6 @@
 
 .social-text-area__emoji-suggestion {
     width: 30px;
-    font-family: var(--emoji-font);
-}
-
-.emoji-mart-emoji-native {
     font-family: var(--emoji-font);
 }
 

@@ -25,7 +25,7 @@ export const EmojiPicker = ({ className }) => {
         triggerValueChange(
             (value?.rawValue ?? '') + emoji.native,
             (value?.plainText ?? '') + emoji.native,
-            value.current?.mentions ?? []
+            value?.current?.mentions ?? []
         );
     };
 

@@ -208,4 +208,19 @@ All props are optional.
 - `onSearchUsers` (`function(name)`): Called to retrieved the user suggestions. If a user types "@Br" in the component, this function will be called with "br" as parameter. See [User mentions](#User-mentions).
 
 
-  
+### Flag emojis font issue on windows
+
+On windows, the flag emojis (for example `:flag-ca:`), are not displayed properly, whereas there is no issue on macos.
+More info about this issue [here](https://prinsfrank.nl/2021/01/25/Non-existing-flag-emojis-on-windows).
+
+As a fix, the component uses the font "TwemojiMozilla" (included in the package [here](https://github.com/juliendelort/social-textarea/blob/main/src/assets/twemoji-colrv0.ttf) and on [unpkg](https://unpkg.com/browse/social-textarea/dist/assets/twemoji-colrv0.ttf)) but it needs to be added to the host page:
+
+```css
+@font-face {
+  font-family: 'TwemojiMozilla';
+  unicode-range: U+1F1E6-1F1FF;
+  src: url('https://unpkg.com/social-textarea@latest/dist/assets/twemoji-colrv0.ttf')
+    format('truetype');
+  font-weight: normal;
+}
+```
