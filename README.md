@@ -25,7 +25,7 @@ See demo [here](https://demo-social-textarea.stackblitz.io) ([code](https://stac
 
 ## Usage/Examples
 
-Import the main component and the styles on your pabe
+Import the main component and the styles on your page
 
 ```js
 import { SocialTextArea } from 'social-textarea';
